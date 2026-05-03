@@ -1,0 +1,35 @@
+body {
+  font-family: Arial;
+  text-align: center;
+}
+
+.form input {
+  padding: 10px;
+  margin: 5px;
+}
+
+button {
+  padding: 10px;
+  background: purple;
+  color: white;
+  border: none;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card {
+  background: purple;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+  margin-top: 20px;
+}

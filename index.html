@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Trip Planner</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  color: white;
+
+  background: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470") no-repeat center center/cover;
+}
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      margin: 20px;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px;
+      width: 180px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background: linear-gradient(45deg, #ff6a00, #ee0979);
+      color: white;
+      border: none;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .card {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
+    }
+
+    #map {
+      height: 500px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 15px;
+    }
+
+    .toggle {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: black;
+      padding: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .title {
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="toggle" onclick="toggleMode()">🌙</div>
+
+<div class="container">
+
+<h1 class="title">🚗 Smart Trip Planner</h1>
+
+<input id="start" placeholder="Start (Shivamogga)">
+<input id="end" placeholder="Destination (Bengaluru)">
+<input id="stopsInput" placeholder="Stops (optional)">
+
+<br>
+
+<input id="mileage" placeholder="Mileage (km/l)">
+<input id="fuel" placeholder="Fuel Price">
+<input id="stopsCount" placeholder="Stops count">
+<input id="hotel" placeholder="Hotel cost">
+<input id="food" placeholder="Food cost">
+
+<br><br>
+
+<button onclick="planTrip()">Plan Trip</button>
+<button onclick="addStopFromMap()">Map Stops</button>
+
+<br><br>
+
+<div class="card">Distance: <span id="distance">--</span></div>
+<div class="card">Fuel Cost: <span id="cost">--</span></div>
+<div class="card">Total Cost: <span id="total">--</span></div>
+
+<div id="breakdown"></div>
+
+<h3>⭐ Best Tourist Stops</h3>
+<div id="tourist"></div>
+
+<div id="map"></div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
